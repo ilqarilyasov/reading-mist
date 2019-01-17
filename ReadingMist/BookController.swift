@@ -32,8 +32,23 @@ class BookController {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            NSLog("Error encoding books to data: \(error)")
+            NSLog("Error encoding books array to data: \(error)")
         }
+    }
+    
+    func loadFromPersistentStore() {
+        guard let url = readingListURL,
+            FileManager.default.fileExists(atPath: url.path) else { return }
+        let decoder = PropertyListDecoder()
+        
+        do {
+            let booksData = try Data(contentsOf: url)
+            let decodedBooks = try decoder.decode([Book].self, from: booksData)
+            self.books = decodedBooks
+        } catch {
+            NSLog("Error decoding data to books array: \(error)")
+        }
+        
     }
     
 }
