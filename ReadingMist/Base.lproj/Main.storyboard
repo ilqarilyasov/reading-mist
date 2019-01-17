@@ -43,7 +43,7 @@
                                                     </constraints>
                                                     <state key="normal" image="unchecked"/>
                                                     <connections>
-                                                        <action selector="hasBeenReadButtonTapped:" destination="2kY-H3-ZIu" eventType="touchUpInside" id="XLG-ua-lNH"/>
+                                                        <action selector="unCheckButtonTapped:" destination="2kY-H3-ZIu" eventType="touchUpInside" id="XLG-ua-lNH"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -58,7 +58,7 @@
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bookTitleLabel" destination="ezr-RK-MES" id="AbF-Zw-3BZ"/>
-                                    <outlet property="hasBeenReadButton" destination="YQA-aW-kv7" id="v9M-0N-bZP"/>
+                                    <outlet property="unCheckButton" destination="YQA-aW-kv7" id="v9M-0N-bZP"/>
                                     <segue destination="YXB-M5-GCY" kind="show" identifier="CellSegue" id="D0G-t7-7aa"/>
                                 </connections>
                             </tableViewCell>
