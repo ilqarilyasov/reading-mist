@@ -58,7 +58,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return ""
+        return section == 0 ? "Unread" : "Read"
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
