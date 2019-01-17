@@ -22,33 +22,59 @@ class BookController {
         return url
     }
     
-    // MARK: - Functions
+    // MARK: - Persistent Store Functions
     
     func saveToPersistentStore() {
-        guard let url = readingListURL else { return }
         let encoder = PropertyListEncoder()
+        guard let url = readingListURL else { return }
         
         do {
             let booksData = try encoder.encode(books)
             try booksData.write(to: url)
         } catch {
-            NSLog("Error encoding books array to data: \(error)")
+            NSLog("Error saving data to persistent store: \(error)")
         }
     }
     
     func loadFromPersistentStore() {
+        let decoder = PropertyListDecoder()
         guard let url = readingListURL,
             FileManager.default.fileExists(atPath: url.path) else { return }
-        let decoder = PropertyListDecoder()
         
         do {
             let booksData = try Data(contentsOf: url)
             let decodedBooks = try decoder.decode([Book].self, from: booksData)
             self.books = decodedBooks
         } catch {
-            NSLog("Error decoding data to books array: \(error)")
+            NSLog("Error loading data from persistent store: \(error)")
         }
+    }
+    
+    // MARK: - CRUD methods
+    
+    func createBook(with title:String, reasonToRead: String) {
+        let newBook = Book(with: title, reasonToRead: reasonToRead)
+        books.append(newBook)
         
+        saveToPersistentStore()
+    }
+    
+    func delete(book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books.remove(at: index)
+        
+        saveToPersistentStore()
+    }
+    
+    func updateHasBeenRead(for book: Book) {
+        guard let index = books.index(of: book) else { return }
+        books[index].hasBeenRead = !books[index].hasBeenRead
+    }
+    
+    func update(book: Book, title: String, reasonToRead: String) {
+        guard let index = books.index(of: book) else { return }
+        books[index].title = title
+        books[index].reasonToRead = reasonToRead
     }
     
 }
