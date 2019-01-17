@@ -22,6 +22,16 @@ class BookController {
         return url
     }
     
+    var readBooks: [Book] {
+        let readBooks = books.filter({ $0.hasBeenRead == true })
+        return readBooks
+    }
+    
+    var unreadBooks: [Book] {
+        let unreadBooks = books.filter({ $0.hasBeenRead == false })
+        return unreadBooks
+    }
+    
     // MARK: - Persistent Store Functions
     
     func saveToPersistentStore() {
