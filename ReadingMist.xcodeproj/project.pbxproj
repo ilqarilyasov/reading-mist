@@ -17,6 +17,7 @@
 		82DF873521F128EF00A9E13A /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF873421F128EF00A9E13A /* ReadingListTableViewController.swift */; };
 		82DF873721F1291400A9E13A /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF873621F1291400A9E13A /* BookTableViewCell.swift */; };
 		82DF873921F12BEB00A9E13A /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF873821F12BEB00A9E13A /* BookDetailViewController.swift */; };
+		82DF873B21F12E1B00A9E13A /* BookTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DF873A21F12E1B00A9E13A /* BookTableViewCellDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,7 @@
 		82DF873421F128EF00A9E13A /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		82DF873621F1291400A9E13A /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
 		82DF873821F12BEB00A9E13A /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
+		82DF873A21F12E1B00A9E13A /* BookTableViewCellDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCellDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +69,7 @@
 				82DF873021F10A0800A9E13A /* Book.swift */,
 				82DF873221F10B2F00A9E13A /* BookController.swift */,
 				82DF873621F1291400A9E13A /* BookTableViewCell.swift */,
+				82DF873A21F12E1B00A9E13A /* BookTableViewCellDelegate.swift */,
 				82DF873421F128EF00A9E13A /* ReadingListTableViewController.swift */,
 				82DF873821F12BEB00A9E13A /* BookDetailViewController.swift */,
 				82DF871E21F109EC00A9E13A /* AppDelegate.swift */,
@@ -153,6 +156,7 @@
 				82DF872121F109EC00A9E13A /* ViewController.swift in Sources */,
 				82DF873521F128EF00A9E13A /* ReadingListTableViewController.swift in Sources */,
 				82DF871F21F109EC00A9E13A /* AppDelegate.swift in Sources */,
+				82DF873B21F12E1B00A9E13A /* BookTableViewCellDelegate.swift in Sources */,
 				82DF873321F10B2F00A9E13A /* BookController.swift in Sources */,
 				82DF873921F12BEB00A9E13A /* BookDetailViewController.swift in Sources */,
 				82DF873721F1291400A9E13A /* BookTableViewCell.swift in Sources */,

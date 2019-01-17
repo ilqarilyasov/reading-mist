@@ -15,6 +15,7 @@ class BookTableViewCell: UITableViewCell {
     var book: Book? {
         didSet { updateViews() }
     }
+    weak var delegate: BookTableViewCellDelegate?
     
     // MARK: - Outlets
 
@@ -24,7 +25,7 @@ class BookTableViewCell: UITableViewCell {
     // MARK: - Actions
     
     @IBAction func unCheckButtonTapped(_ sender: UIButton) {
-        
+        delegate?.toggleHasBeenRead(for: self)
     }
     
     private func updateViews() {
