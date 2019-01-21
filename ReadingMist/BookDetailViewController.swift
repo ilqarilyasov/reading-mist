@@ -40,9 +40,11 @@ class BookDetailViewController: UIViewController {
         } else {
             bookController.createBook(with: title, reasonToRead: reason)
         }
+        navigationController?.popViewController(animated: true)
     }
     
     private func updateViews() {
+        guard isViewLoaded else { return }
         if let book = book {
             bookTitleTextField.text = book.title
             reasonToReadTextView.text = book.reasonToRead

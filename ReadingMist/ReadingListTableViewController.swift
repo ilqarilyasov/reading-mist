@@ -18,16 +18,22 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.reloadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        tableView.reloadData()
     }
     
     // MARK: - Helper Functions
     
     func bookFor(indexPath: IndexPath) -> Book {
-        return indexPath.section == 0 ? bookController.readBooks[indexPath.row] : bookController.unreadBooks[indexPath.row]
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
     }
     
     // MARK: - BookTableViewCellDelegate
@@ -36,6 +42,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let indexPath = tableView.indexPath(for: cell) else { return }
         let book = bookFor(indexPath: indexPath)
         bookController.updateHasBeenRead(for: book)
+        tableView.reloadData() // IMPORTANT
     }
 
     // MARK: - Table view data source
@@ -45,7 +52,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return section == 0 ? bookController.readBooks.count : bookController.unreadBooks.count
+        if section == 0 {
+            return bookController.readBooks.count
+        } else {
+            return bookController.unreadBooks.count
+        }
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -53,12 +64,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         guard let bookTVCell = cell as? BookTableViewCell else { fatalError() }
         
         bookTVCell.book = bookFor(indexPath: indexPath)
+        bookTVCell.delegate = self
 
         return bookTVCell
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return section == 0 ? "Unread" : "Read"
+        if section == 0 {
+            return bookController.readBooks.isEmpty ? nil : "Read"
+        } else {
+            return bookController.unreadBooks.isEmpty ? nil : "Unread"
+        }
     }
 
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -67,7 +83,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             bookController.delete(book: book)
             tableView.deleteRows(at: [indexPath], with: .fade)
         } else if editingStyle == .insert {
-            
+            // MAYBE LATER
         }    
     }
 
@@ -82,16 +98,17 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
     // MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let destinationVC = segue.destination as? BookDetailViewController,
-            let indexPath = tableView.indexPathForSelectedRow else { return }
         
         if segue.identifier == "AddSegue" {
+            guard let destinationVC = segue.destination as? BookDetailViewController else { return }
             destinationVC.bookController = bookController
         } else if segue.identifier == "CellSegue" {
-            destinationVC.bookController = bookController
-            
+            guard let destinationVC = segue.destination as? BookDetailViewController,
+                let indexPath = tableView.indexPathForSelectedRow else { return }
             let book = bookFor(indexPath: indexPath)
+            
             destinationVC.book = book
+            destinationVC.bookController = bookController
         }
     }
 }

@@ -28,16 +28,16 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <stackView opaque="NO" contentMode="scaleToFill" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Efm-3q-I7p">
-                                            <rect key="frame" x="8" y="2" width="359" height="67.5"/>
+                                            <rect key="frame" x="20" y="2" width="343" height="67.5"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ezr-RK-MES">
-                                                    <rect key="frame" x="0.0" y="0.0" width="283.5" height="67.5"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="267.5" height="67.5"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YQA-aW-kv7">
-                                                    <rect key="frame" x="291.5" y="0.0" width="67.5" height="67.5"/>
+                                                    <rect key="frame" x="275.5" y="0.0" width="67.5" height="67.5"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="YQA-aW-kv7" secondAttribute="height" multiplier="1:1" id="Kkd-ly-3bW"/>
                                                     </constraints>
@@ -52,8 +52,8 @@
                                     <constraints>
                                         <constraint firstAttribute="bottom" secondItem="Efm-3q-I7p" secondAttribute="bottom" constant="2" id="3Bx-9Y-2a1"/>
                                         <constraint firstItem="Efm-3q-I7p" firstAttribute="top" secondItem="Ahu-7R-yop" secondAttribute="top" constant="2" id="GoK-Tl-LFT"/>
-                                        <constraint firstItem="Efm-3q-I7p" firstAttribute="leading" secondItem="Ahu-7R-yop" secondAttribute="leading" constant="8" id="I4t-Hb-hdu"/>
-                                        <constraint firstAttribute="trailing" secondItem="Efm-3q-I7p" secondAttribute="trailing" constant="8" id="iLs-XT-fWU"/>
+                                        <constraint firstItem="Efm-3q-I7p" firstAttribute="leading" secondItem="Ahu-7R-yop" secondAttribute="leading" constant="20" id="I4t-Hb-hdu"/>
+                                        <constraint firstAttribute="trailing" secondItem="Efm-3q-I7p" secondAttribute="trailing" constant="12" id="iLs-XT-fWU"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -118,6 +118,8 @@
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="SbO-ua-M2Q">
                                         <rect key="frame" x="0.0" y="38" width="343" height="229"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <string key="text">Reason to read:
+</string>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>

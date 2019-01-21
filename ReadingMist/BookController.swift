@@ -24,12 +24,12 @@ class BookController {
     
     var readBooks: [Book] {
         let readBooks = books.filter({ $0.hasBeenRead == true })
-        return readBooks
+        return readBooks.sorted(by: { $0.title < $1.title })
     }
     
     var unreadBooks: [Book] {
         let unreadBooks = books.filter({ $0.hasBeenRead == false })
-        return unreadBooks
+        return unreadBooks.sorted(by: { $0.title < $1.title })
     }
     
     // MARK: - Persistent Store Functions
